@@ -1,0 +1,345 @@
+:root {
+  --f-border-radius: 0.45rem;
+  --f-orange: #ffc719;
+  --f-red: #bf033b;
+  --f-rotated: 45deg;
+  --f-size: 4.25rem;
+  --f-animation-duration: 0.75s;
+  --f-animation-name: vibrate;
+  --f-animation-delay: 0.25s;
+}
+
+.nav {
+  align-content: baseline;
+  padding-top: 10px !important;
+  height: fit-content !important;
+  --nav-color: #fff;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  height: var(--nav-height);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0 1.2rem;
+  z-index: 99999;
+  color: #fff;
+  // mix-blend-mode: difference;
+  pointer-events: none;
+
+  a {
+    pointer-events: auto;
+    color: var(--nav-color);
+  }
+
+  .logo {
+    flex-grow: 1;
+    a {
+      font-family: "Roboto", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.3ch;
+      text-decoration: none;
+    }
+  }
+
+  .router-links {
+    .router-link {
+      z-index: 10;
+      font-weight: 700;
+      margin-left: 2rem;
+      font-size: 1.35rem;
+      position: relative; /* Ensure diamonds are positioned relative to this link */
+      mix-blend-mode: difference;
+      color: rgb(241, 139, 72);
+
+      &:hover .container {
+        opacity: 1; /* Show diamonds on hover */
+        pointer-events: auto; /* Allow interaction */
+        mix-blend-mode: difference;
+        color: rgb(223, 158, 29); /* Adjust for better contrast */
+      }
+    }
+
+    .router-link::after {
+      z-index: 10;
+      background: var(--nav-color);
+    }
+  }
+}
+
+.router-link:active::after {
+  transform: scaleX(100%);
+}
+.router-link.active::after {
+  top: 50%;
+}
+.router-link.active:hover::after {
+  transform: scaleX(100%);
+}
+
+.mobile-hamburger-btn {
+  display: none;
+  pointer-events: auto;
+  position: absolute;
+  right: 1.2rem;
+  top: calc(var(--nav-height) / 2);
+  transform: translate3d(0, -50%, 0);
+  overflow: hidden;
+  background-color: transparent;
+  color: transparent;
+  border: none;
+  text-transform: uppercase;
+  z-index: 9999992;
+}
+
+.mobile-hamburger-btn:hover {
+  cursor: pointer;
+}
+
+.mobile-hamburger-btn::before,
+.mobile-hamburger-btn::after {
+  position: absolute;
+  color: var(--nav-color);
+  top: 0;
+  right: 0;
+  transition: 0.2s transform;
+}
+
+.mobile-hamburger-btn::before {
+  content: "Menu";
+  transform: translate3d(0, 0%, 0);
+}
+
+.mobile-hamburger-btn::after {
+  content: "Close";
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate3d(0, 101%, 0);
+}
+
+.mobile-hamburger-btn.active::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.mobile-hamburger-btn.active::before {
+  transform: translate3d(0, -101%, 0);
+}
+
+.mobile {
+  padding: 1.2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--white2);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.5s cubic-bezier(0.86, 0, 0.07, 0.995);
+
+  .router-links {
+    list-style-type: none;
+
+    .router-link {
+      font-family: "Antonio", sans-serif;
+      font-size: 3.6rem;
+      font-weight: 700;
+      margin-bottom: 1.8rem;
+      margin-top: -0.52rem;
+    }
+    .router-link::after {
+      height: 0.5rem;
+      background-color: #333;
+    }
+    .router-link:hover:after {
+      transform: none;
+    }
+  }
+
+  .mobile-hamburger-btn {
+    position: absolute;
+    display: block;
+  }
+
+  .mobile-hamburger-btn::after,
+  .mobile-hamburger-btn::before {
+    color: black;
+  }
+
+  .nav-footer {
+    color: #333;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+  }
+}
+
+.mobile.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: absolute; /* To position it relative to the nav item */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  pointer-events: none; /* Prevent mouse events */
+}
+
+.corpus {
+  position: absolute;
+  transform: rotate(var(--f-rotated));
+}
+
+.diamond {
+  background-color: var(--f-red);
+  background-image: linear-gradient(
+    195deg,
+    var(--f-red) 0%,
+    var(--f-orange) 74%
+  );
+  border-radius: var(--f-border-radius);
+  height: var(--f-size);
+  width: var(--f-size);
+  mix-blend-mode: difference;
+}
+
+.diamond-inner {
+  position: relative;
+  animation: var(--f-animation-name) var(--f-animation-duration) ease-in
+    var(--f-animation-delay) alternate-reverse infinite;
+}
+
+.diamond-right {
+  // --f-animation-duration: 0.95s;
+  --f-size: 3.25rem;
+
+  right: -135px;
+  top: -195px;
+}
+
+.diamond-left {
+  --f-animation-delay: 0.05s;
+  --f-size: 3.45rem;
+
+  right: -10px;
+  top: -10px;
+}
+
+.diamond-inner::after {
+  animation: var(--f-animation-name) var(--f-animation-duration) ease-in
+    var(--f-animation-delay) alternate-reverse infinite;
+  background-image: linear-gradient(
+    195deg,
+    var(--f-red) 0%,
+    var(--f-orange) 74%
+  );
+  border-radius: 0.15rem;
+  content: "";
+  display: block;
+  height: 1.25rem;
+  width: 1.25rem;
+  position: relative;
+  right: -15px;
+  top: -45px;
+}
+
+.diamond-inner::after {
+  top: -25px;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+@keyframes vibrate {
+  to {
+    transform: scale(0.75) translate(15px, 15px);
+  }
+}
+
+@media screen and (max-width: 699px) {
+  .nav {
+    padding: 0 0.8rem;
+  }
+  .mobile-hamburger-btn {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+}
+
+.navItemContainer {
+  position: relative;
+  display: inline-block; /* or flex, depending on your design */
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: absolute; /* To position it relative to the nav item */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+  pointer-events: none; /* Prevent mouse events */
+}
+
+.navItemContainer:hover .container {
+  opacity: 1; /* Show on hover */
+  pointer-events: auto; /* Allow mouse events */
+}
+
+.logoImage {
+  height: 95px;
+  width: 120px;
+
+  /* Tablet view */
+  @media (max-width: 1024px) {
+    height: 80px;
+    width: 100px;
+  }
+
+  /* Mobile view */
+  @media (max-width: 768px) {
+    height: 70px;
+    width: 90px;
+  }
+
+  /* Small mobile view */
+  @media (max-width: 480px) {
+    height: 60px;
+    width: 80px;
+  }
+
+  /* Extra small mobile view */
+  @media (max-width: 360px) {
+    height: 50px;
+    width: 70px;
+  }
+}
+
+// Add a media query to hide diamonds in mobile view
+@media (max-width: 768px) {
+  // Adjust this width to match your mobile breakpoint
+  .diamond-right,
+  .diamond,
+  .diamond-inner {
+    display: none;
+  }
+}

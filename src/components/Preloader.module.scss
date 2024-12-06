@@ -1,0 +1,224 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000; // Optional: a fallback background color
+  z-index: 9999; // Make sure it appears above other content
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8; // Adjust opacity if you want to layer the logo over the video
+}
+
+/* Sword animation styling */
+.logo {
+  position: relative;
+  height: 25rem; /* Adjust as needed */
+  width: auto;
+  opacity: 0; /* Start invisible for animation */
+  animation: swordDrop 1.5s ease-out forwards,
+    glowPulse 3s 1.5s infinite alternate;
+  transform-origin: center top; /* Pivot at the top for drop effect */
+}
+
+/* Sword drop effect */
+@keyframes swordDrop {
+  0% {
+    transform: translateY(-150%) rotate(-15deg) scale(0.8); /* Start offscreen with slight tilt */
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0) scale(1); /* Settle in position, upright */
+    opacity: 1;
+  }
+}
+
+/* Glow pulse effect */
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 5px #f9a602) drop-shadow(0 0 10px #f9a602);
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px #ff6347) drop-shadow(0 0 30px #ff6347);
+    transform: scale(1.05);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #f9a602) drop-shadow(0 0 10px #f9a602);
+    transform: scale(1);
+  }
+}
+
+// /* Wing styling */
+// .logo-container {
+//   position: relative;
+//   display: inline-block;
+// }
+
+// .logo-container::before,
+// .logo-container::after {
+//   content: "";
+//   position: absolute;
+//   top: 50%;
+//   width: 8rem; /* Adjust width of wings */
+//   height: 10rem; /* Adjust height of wings */
+//   background: radial-gradient(
+//     circle,
+//     #ff6347,
+//     transparent 70%
+//   ); /* Wing color */
+//   opacity: 0;
+//   transform: scale(0.5) translateY(-50%);
+//   animation: wingFlap 1s 1.5s forwards; /* Wing flap animation */
+// }
+
+// .logo-container::before {
+//   left: -9rem; /* Position left wing */
+//   transform-origin: right center;
+//   transform: rotate(-45deg); /* Initial tilt for left wing */
+// }
+
+// .logo-container::after {
+//   right: -9rem; /* Position right wing */
+//   transform-origin: left center;
+//   transform: rotate(45deg); /* Initial tilt for right wing */
+// }
+
+// /* Wing flap animation */
+// @keyframes wingFlap {
+//   0% {
+//     transform: scale(0.5) translateY(-50%) rotate(0deg);
+//     opacity: 0;
+//   }
+//   50% {
+//     transform: scale(1.2) translateY(-50%) rotate(0deg);
+//     opacity: 0.8;
+//   }
+//   100% {
+//     transform: scale(1) translateY(-50%) rotate(0deg);
+//     opacity: 1;
+//   }
+// }
+
+/* Sword animation styling */
+.logo-container {
+  position: relative;
+  display: inline-block;
+  perspective: 1000px; /* 3D perspective for 3D rotation */
+}
+
+.logo {
+  position: relative;
+  height: 25rem;
+  width: auto;
+  opacity: 0;
+  transform-style: preserve-3d;
+  animation: swordDrop3D 1.8s ease-out forwards, lightBurst 0.6s 1.8s forwards,
+    float 4s 2.4s infinite alternate ease-in-out;
+  transform-origin: center top;
+  filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.7));
+}
+
+/* 3D Sword drop effect */
+@keyframes swordDrop3D {
+  0% {
+    transform: rotateX(60deg) translateY(-200%) scale(0.8); /* Start offscreen, tilted in 3D */
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0) translateY(0) scale(1); /* Settle in position, upright */
+    opacity: 1;
+  }
+}
+
+/* Light burst effect upon impact */
+@keyframes lightBurst {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.7))
+      drop-shadow(0 0 10px rgba(255, 165, 0, 0.7));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(255, 69, 0, 1))
+      drop-shadow(0 0 45px rgba(255, 69, 0, 1));
+    transform: scale(1.1);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.7))
+      drop-shadow(0 0 10px rgba(255, 165, 0, 0.7));
+    transform: scale(1);
+  }
+}
+
+/* Floating effect after settling */
+@keyframes float {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(5deg) rotateY(5deg) translateY(-5px);
+  }
+  100% {
+    transform: rotateX(-5deg) rotateY(-5deg) translateY(5px);
+  }
+}
+
+/* Wing styling */
+.logo-container::before,
+.logo-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10rem; /* Adjust width of wings */
+  height: 10rem; /* Adjust height of wings */
+  background: radial-gradient(
+    circle,
+    rgba(255, 165, 0, 0.5),
+    transparent 70%
+  ); /* Wing color */
+  opacity: 0;
+  animation: wingFlap3D 1s 1.8s forwards;
+}
+
+.logo-container::before {
+  left: -11rem; /* Position left wing */
+  transform-origin: right center;
+}
+
+.logo-container::after {
+  right: -11rem; /* Position right wing */
+  transform-origin: left center;
+}
+
+/* Wing flap animation with 3D effect */
+@keyframes wingFlap3D {
+  0% {
+    transform: scale(0.5) translateY(-50%) rotateY(-60deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) translateY(-50%) rotateY(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translateY(-50%) rotateY(0deg);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,21 @@
+html, body {
+  background: #222;
+  padding: 0;
+  margin: 0;
+  height: 100%; /* Ensures the body takes full height */
+}
+
+.padded {
+  position: relative; /* Allows for other elements to scroll */
+  width: 100%;
+  height: 100%; /* Full height to enable scrolling of other content */
+}
+
+canvas {
+  position: fixed; /* Fixes the canvas at the bottom of the viewport */
+  bottom: 0; /* Aligns the canvas to the bottom */
+  left: 0;
+  width: 100vw; /* Full width */
+  pointer-events: none; /* Allow interactions with underlying content */
+  z-index: 0; /* Ensures it's above other content */
+}
