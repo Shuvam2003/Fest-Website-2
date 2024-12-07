@@ -27,26 +27,26 @@ import download26 from "../assets/team/T_Ponvel_Graphics Design.jpg";
 import download27 from "../assets/team/Sujatha_GDesign.jpg";
 import download28 from "../assets/team/Dineshraja D_Permissions & Documentation.jpg";
 
-export const eventStartDate = "NOV 8, 2024 :15:00";
+export const eventStartDate = "FEB 23 & FEB 24, 2025 :10:00 AM ONWARDS";
 
 export const coordinators = [
   {
     img: download1,
-    name: "Guru Varap Prakash",
+    name: "Shuvam Mondal",
     position: "President",
     instagramLink: "https://instagram.com/gvp_00_1",
     linkedinLink: "https://linkedin.com/in/example1",
   },
   {
     img: download2,
-    name: "Sowmiya K",
+    name: "Sonia Rajbhar",
     position: "President",
     instagramLink: "https://instagram.com/_sowmiya_k_",
     linkedinLink: "https://www.linkedin.com/in/sowmiyakaruna",
   },
   {
     img: download3,
-    name: "Kathir S",
+    name: "Bidisha Mandal",
     position: "Vice President",
     instagramLink: "https://instagram.com/kathir_skat",
     linkedinLink:
