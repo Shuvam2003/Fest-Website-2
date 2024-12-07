@@ -48,7 +48,7 @@ const Home = ({ user }) => {
               <span
                 className={cx("btn-subtitle", styles["intro-btn-subtitle"])}
               >
-                Agni'24 in reels
+                Iphigenia 10.O'24 in reels
               </span>
               <span className={cx("btn-text", styles["intro-btn-text"])}>
                 Merchandise

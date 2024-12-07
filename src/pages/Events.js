@@ -135,7 +135,7 @@ const Events = ({ user }) => {
             style={{ backgroundColor: "#007782c7" }}
           >
             <span className={cx("btn-subtitle", styles["intro-btn-subtitle"])}>
-              AGNI'24 in reels
+              IPHIGENIA 10.O'24 in reels
             </span>
             <span className={cx("btn-text", styles["intro-btn-text"])}>
               Merchandise
@@ -144,8 +144,8 @@ const Events = ({ user }) => {
           </NavLink>
         </div>
         <div className={cx("subtitle", styles["header-subtitle"])}>
-          <h2>Nov 8-10</h2>
-          <div>2024</div>
+          <h2>FEB 23-24</h2>
+          <div>2025</div>
         </div>
       </header>
 
