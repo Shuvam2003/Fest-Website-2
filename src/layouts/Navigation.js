@@ -105,7 +105,7 @@ const Navigation = ({ user }) => {
               </li>
             ))}
         </ul>
-        <div className={styles["nav-footer"]}>&copy;SAAS 2024-25 </div>
+        <div className={styles["nav-footer"]}>&copy;IPHIGENIA 10.O 2024-25 </div>
       </nav>
     </header>
   );

@@ -136,7 +136,7 @@ const Footer = () => {
             </button>
           </span>
           <span className={styles.sep}>~</span>
-          <span>&copy; 2024 AGNI CEG ANNA UNIVERSITY</span>
+          <span>&copy; 2024 IPHIGENIA 10.O IDEAL INSTITUTE OF ENGINEERING KALYANI</span>
           {devTeam && (
             <ul className={styles.devteam}>
               <li>
